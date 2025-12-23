@@ -5,7 +5,7 @@ st.set_page_config(page_title="IA Detector de Ictus", page_icon="🧠")
 
 @st.cache_resource
 def load_model():
-    with open('././models/stroke-model.pck', 'rb') as f:
+    with open('stroke-model.pck', 'rb') as f:
         return pickle.load(f)
 
 dv, model = load_model()
@@ -63,5 +63,6 @@ if st.button("Analizar Paciente"):
         st.error("🚨 **ALTO RIESGO**: El perfil clínico coincide con patrones de pacientes que han sufrido ictus.")
     else:
         st.success("✅ **RIESGO BAJO**: No se detectan anomalías críticas según los datos proporcionados.")
+
 
     st.warning("**Nota informativa:** Este es un modelo de IA con fines educativos. Consulta siempre a un médico.")
